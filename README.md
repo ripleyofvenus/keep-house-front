@@ -1,61 +1,58 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+##Project Concept
+```md
+Keep House is an task manager app (similar to Trello) aimed at helping housemates
+(whether communal, family, dorms, etc.) keep track of what tasks need to be done
+around the house.
+This idea is step one in a more fully feature fleshed out app I intend to work on
+after WDI_020 has finished. I first came up with the idea for this app while
+trying to find an app my housemates and I could use to make our lives easier,
+through relieving the mental load of keeping track of things which needed doing
+around the house. The app will relieve this load through keeping track of tasks
+while aggregating the information to the user account or "House", enabling the
+ability to mark tasks as completed, or in need of attention.
 
-# browser-template
+My initial wire frame, concept sketches, and ERD can be found ```html <a href=https://imgur.com/gallery/dyFTN>here</a>
+```
+##User Stories
+```md
+As a user, I want to...
+-have a profile I can access with my username and password
+-store my tasks to my profile
+-select tasks for my personal task-list from a list of tasks
+-put in custom tasks to my personal task-list
+-check off tasks when they are completed
+-uncheck tasks when they need to be done again
+-change my profile password if needed
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+##Tables and Columns
+```md
+Table: House
+-Username
+-Email Address
+-Password
 
-## Installation
+Table: Tasks
+-Example Task 1
+-Example Task 2
+-Example Task 3
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Replace all instances of `ga-wdi-boston.browser-template` with the name of your project.
-1.  Move into the new project and `git init`
-1.  Add all of the files in your project with the command `git add -A`
-  -   *Note:* THIS IS THE ONLY TIME YOU SHOULD RUN THIS COMMAND
-1.  Commit all of your files with the command `git commit`
-  -   Your commit title should read `Initial commit`
-1.  Install dependencies with `npm install`.
+Table: Task List
+-UserID
+-taskID
 
-## Structure
-
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
-
-Developers should set `config.apiOrigins.production` (and
-`config.apiOrigins.development` if it differs from the default).  With
-`apiOrigins` set, developers may rely on `config.apiOrigin` as the base for API
-URLs.
-
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss).
-
-Developers should use [getFormFields](forms.md) to retrieve form data to send to
-an API.
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Tasks
-
-Developers should run these often!
-
--   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
--   `grunt make-standard`: reformats all your code in the JavaScript Standard Style
--   `grunt <server|serve|s>`: generates bundles, watches, and livereloads
--   `grunt test`: runs any automated tests, depends on `grunt build`
--   `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+##Timeline
+```md
+Day 1 (Friday) - Confirm project concept and outline with consultant team.
+Set up back-end files and deploy to Heroku.
+Start entering pseudo-code comments to outline my steps and actions to follow.
+If I have more time, start next days work.
+Day 2 (Saturday) - Build out models and migrations for my API. Ensure all
+endpoints work as expected.
+Day 3 (Sunday) - Continue working on back-end and/or debug and commit back-end
+endpoints working as expected.
+Day 4 (Monday) - Latest point to begin build on front end javascript, jquery,
+css & html.
+Day 5 (Tuesday) - Continue work from Monday. If possible complete project
+requirements.
+Day 6 (Wednesday) - Catch-up and Touch up day.
+Project Presentation Day
