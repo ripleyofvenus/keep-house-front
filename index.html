@@ -12,7 +12,43 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <!-- sign up form -->
+<form id="sign-up">
+<fieldset>
+<legend>Sign Up</legend>
+<input type="text" name="credentials[email]" value="" placeholder="email">
+<input type="password" name="credentials[password]" value="" placeholder="password">
+<input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+<input type="text" name="credentials[username]" value="" placeholder="username">
+<input type="submit" name="submit" value="Sign Up">
+</fieldset>
+</form>
+<!-- sign in form -->
+<form id="sign-in">
+<fieldset>
+<legend>Sign In</legend>
+<input type="text" name="credentials[email]" value="" placeholder="email">
+<input type="password" name="credentials[password]" value="" placeholder="password">
+<input type="submit" name="submit" value="Sign In">
+</fieldset>
+</form>
+<!-- sign out form  -->
+<form id="sign-out">
+<fieldset>
+<legend>Sign Out</legend>
+<input type="submit" name="submit" value="Sign Out">
+</fieldset>
+</form>
+<!-- change password form -->
+<form id="change-password">
+<fieldset>
+<legend>Change Password</legend>
+<input type="password" name="passwords[old]" value="" placeholder="Old Password">
+<input type="password" name="passwords[new]" value="" placeholder="New Password">
+<input type="submit" name="submit" value="Change Password">
+</fieldset>
+</form>
+      <h1>Keep House</h1>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
