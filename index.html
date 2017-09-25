@@ -50,12 +50,22 @@
 </form>
       <h1>Keep House</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <p>Relieve the mental load, keep track of your laundry load, and don't lose your mind... all in one app.</p>
+  <div class="tasklist">
+    <div id="TaskHeader" class="header">
+      <h2>USERNAME</h2>
+      <input type="text" id="taskInput" placeholder="Task...">
+      <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="tasksUL">
+      <li class="toDo" data-id="0">Sweep</li>
+      <li class="checked"data-id="1">Laundry</li>
+      <li class="toDo" data-id="2">""</li>
+      <li class="toDo" data-id="3">""</li>
+      <li class="toDo" data-id="4">""</li>
+      <li class="toDo" data-id="5">""</li>
+    </ul>
+  </div>
     </body>
 </html>
