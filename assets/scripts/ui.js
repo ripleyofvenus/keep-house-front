@@ -15,7 +15,7 @@ const signUpFailure = () => {
 
 const signInSuccess = (data) => {
   console.log('sign in success')
-  store.user = data.user
+  store.userData = data.user
   $('#sign-in').trigger('reset')
 }
 
@@ -25,6 +25,7 @@ const signInFailure = () => {
 
 const signOutSuccess = (data) => {
   console.log('sign out success')
+  store.userData = null
 }
 
 const changePasswordSuccess = () => {
