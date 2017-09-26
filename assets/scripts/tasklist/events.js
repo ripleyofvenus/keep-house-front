@@ -3,11 +3,10 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('../ui')
-const store = require('../store')
+// const store = require('../store')
 // const list = require('./list')
 
 const onNewTask = function (event) {
-  console.log('WHAT')
   event.preventDefault()
   const data = getFormFields(event.target)
   // const userId = store.userData.id
@@ -26,7 +25,7 @@ const onGetTasks = () => {
 }
 
 const addHandlers = () => {
-  $('#tasklist').on('submit', onNewTask)
+  $('.add-task').on('submit', onNewTask)
 }
 
 module.exports = {

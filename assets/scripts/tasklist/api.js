@@ -33,13 +33,14 @@ const getTasks = function () {
   })
 }
 
-const deleteTask = function (data, taskId) {
+const deleteTask = function (id) {
   console.log('delete task api')
+  const token = store.userData.token
   return $.ajax({
-    url: config.apiOrigin + '/tasks/' + taskId,
+    url: config.apiOrigin + '/tasks/' + id,
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.userData.token
+      Authorization: 'Token token=' + token
     }
   })
 }

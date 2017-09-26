@@ -3,6 +3,7 @@
 const store = require('./store.js')
 const taskApi = require('./tasklist/api')
 const showTasksTemplate = require('./templates/tasks.handlebars')
+const config = require('./config')
 
 // Auth Ui
 
@@ -43,8 +44,15 @@ const changePasswordFail = () => {
 
 // task events
 
+const clearTable = function () {
+  $('.table-body').html('')
+}
+
 const newTaskSuccess = () => {
-  console.log('new task success')
+  clearTable()
+  taskApi.getTasks()
+    .then(getTasksSuccess)
+    .catch(getTasksError)
 }
 
 const newTaskError = () => {
@@ -62,6 +70,29 @@ const getTasksError = () => {
   console.log('get tasks error')
 }
 
+const addHandlers = () => {
+  $('.delete-task-btn').on('click', onDeleteTask)
+}
+const onDeleteTask = () => {
+  const selectTaskId = $(this).parent().parent().attr('id')
+  console.log(selectTaskId)
+  taskApi.deleteTask(selectTaskId)
+    .then(deleteTaskSuccess)
+    .catch(deleteTaskError)
+}
+
+const deleteTaskSuccess = () => {
+  console.log('task deleted')
+  clearTable()
+  taskApi.getSongs()
+    .then(getTasksSuccess)
+    .catch(getTasksError)
+}
+
+const deleteTaskError = () => {
+  console.log('task not deleted')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -73,5 +104,9 @@ module.exports = {
   newTaskSuccess,
   newTaskError,
   getTasksSuccess,
-  getTasksError
+  getTasksError,
+  addHandlers,
+  onDeleteTask,
+  deleteTaskSuccess,
+  deleteTaskError
 }

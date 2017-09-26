@@ -52,21 +52,22 @@
 
   <p>Relieve the mental load, keep track of your laundry load, and don't lose your mind... all in one app.</p>
 <!-- Add task form -->
+  <div class="add-task">
   <form id="tasklist">
   <fieldset>
   <legend>USERNAME</legend>
   <input type="text" name="task[task]" value="" placeholder="Task...">
   <input type="text" name="task[notes]" value="" placeholder="notes">
-  <input type="submit" name="submit" value="Add">
+  <button type="submit" class="btn btn-primary">Add</button>
   </fieldset>
-  <div class="userlist">
+  </form>
+  </div>
     <table class="table">
     <thead>
       <th>Task</th>
       <th>Notes</th>
-    </ul>
-  </table>
-  </div>
-  </form>
+    </table>
+    <tbody class="table-body">
+    </tbody>
     </body>
 </html>
