@@ -43,6 +43,9 @@ const changePasswordFail = () => {
 }
 
 // task events
+const addHandlers = () => {
+  $('.delete-task-btn').on('click', onDeleteTask)
+}
 
 const clearTable = function () {
   $('.table-body').html('')
@@ -63,18 +66,16 @@ const getTasksSuccess = (data) => {
   console.log('get tasks success')
   const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
   console.log(showTasksHtml)
-  $('.table').append(showTasksHtml)
+  $('.table-body').append(showTasksHtml)
+  $('.delete-task-btn').on('click', onDeleteTask)
 }
 
 const getTasksError = () => {
   console.log('get tasks error')
 }
 
-const addHandlers = () => {
-  $('.delete-task-btn').on('click', onDeleteTask)
-}
-const onDeleteTask = () => {
-  const selectTaskId = $(this).parent().parent().attr('id')
+const onDeleteTask = (event) => {
+  const selectTaskId = $(event.target).parent().parent().data('id')
   console.log(selectTaskId)
   taskApi.deleteTask(selectTaskId)
     .then(deleteTaskSuccess)
@@ -84,7 +85,7 @@ const onDeleteTask = () => {
 const deleteTaskSuccess = () => {
   console.log('task deleted')
   clearTable()
-  taskApi.getSongs()
+  taskApi.getTasks()
     .then(getTasksSuccess)
     .catch(getTasksError)
 }

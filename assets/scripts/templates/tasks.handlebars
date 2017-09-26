@@ -2,11 +2,7 @@
 
 <tr data-id="{{task.id}}">
   <td>{{task.task}}</td>
-  {{#if task.notes}}
-     <td>{{task.notes}}</td>
-  {{else}}
-     <td></td>
-   {{/if}}
+  <td>{{task.notes}}</td>
   <td>
     <button class="btn btn-default edit-task-btn">Edit</button>
     <button class="btn btn-default delete-task-btn">Delete</button>
