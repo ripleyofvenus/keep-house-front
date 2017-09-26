@@ -6,13 +6,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 /* Remove margins and padding from the list */
-ul {
+thead {
   margin: 0;
   padding: 0;
 }
 
 /* Style the list items */
-ul li {
+thead th {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
@@ -28,24 +28,24 @@ ul li {
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
-ul li:nth-child(odd) {
+thead th:nth-child(odd) {
   background: #f9f9f9;
 }
 
 /* Darker background-color on hover */
-ul li:hover {
+thead th:hover {
   background: #ddd;
 }
 
 /* When clicked on, add a background color and strike out text */
-ul li.checked {
+thead th.checked {
   background: #888;
   color: #fff;
   text-decoration: line-through;
 }
 
 /* Add a "checked" mark when clicked on */
-ul li.checked::before {
+thead th.checked::before {
   content: '';
   position: absolute;
   border-color: #fff;

@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('./store.js')
+const taskApi = require('./tasklist/api')
+const showTasksTemplate = require('./templates/tasks.handlebars')
 
 // Auth Ui
 
@@ -17,6 +19,9 @@ const signInSuccess = (data) => {
   console.log('sign in success')
   store.userData = data.user
   $('#sign-in').trigger('reset')
+  taskApi.getTasks()
+    .then(getTasksSuccess)
+    .catch(getTasksError)
 }
 
 const signInFailure = () => {
@@ -46,8 +51,11 @@ const newTaskError = () => {
   console.log('new task fail')
 }
 
-const getTasksSuccess = () => {
+const getTasksSuccess = (data) => {
   console.log('get tasks success')
+  const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
+  console.log(showTasksHtml)
+  $('.table').append(showTasksHtml)
 }
 
 const getTasksError = () => {

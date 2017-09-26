@@ -17,13 +17,19 @@ const newTask = function (data) {
 }
 
 const getTasks = function () {
+  const order = $('.order-by').val()
+  const token = store.userData.token
+  const data = {
+    order: order
+  }
   console.log('get tasks api')
   return $.ajax({
     url: config.apiOrigin + '/tasks',
     method: 'GET',
     headers: {
-      Authorization: 'Token token=' + store.userData.token
-    }
+      Authorization: 'Token token=' + token
+    },
+    data
   })
 }
 
