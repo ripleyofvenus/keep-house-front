@@ -48,16 +48,17 @@
 <input type="submit" name="submit" value="Change Password">
 </fieldset>
 </form>
-      <h1>Keep House</h1>
+  <h1>Keep House</h1>
 
-      <p>Relieve the mental load, keep track of your laundry load, and don't lose your mind... all in one app.</p>
-  <div class="tasklist">
-    <div id="TaskHeader" class="header">
-      <h2>USERNAME</h2>
-      <input type="text" id="taskInput" placeholder="Task...">
-      <span onclick="newElement()" class="addBtn">Add</span>
-    </div>
-
+  <p>Relieve the mental load, keep track of your laundry load, and don't lose your mind... all in one app.</p>
+<!-- Add task form -->
+  <form id="tasklist">
+  <fieldset>
+  <legend>USERNAME</legend>
+  <input type="text" name="taskInput" value="" placeholder="Task...">
+  <input type="text" name="notes" value="" placeholder="notes">
+  <input type="submit" name="submit" value="Add">
+  </fieldset>
     <ul id="tasksUL">
       <li class="toDo" data-id="0">Sweep</li>
       <li class="checked"data-id="1">Laundry</li>
@@ -66,6 +67,6 @@
       <li class="toDo" data-id="4">""</li>
       <li class="toDo" data-id="5">""</li>
     </ul>
-  </div>
+  </form>
     </body>
 </html>
