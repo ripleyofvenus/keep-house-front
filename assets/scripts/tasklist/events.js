@@ -3,15 +3,15 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('../ui')
+const store = require('../store')
 // const list = require('./list')
-// const store = require('../store')
 
 const onNewTask = function (event) {
   console.log('WHAT')
   event.preventDefault()
-  const data = getFormFields(this)
+  const data = getFormFields(event.target)
+  // const userId = store.userData.id
   console.log('you clicked add button')
-  console.log(data)
   api.newTask(data)
     .then(ui.newTaskSuccess)
     .catch(ui.newTaskError)

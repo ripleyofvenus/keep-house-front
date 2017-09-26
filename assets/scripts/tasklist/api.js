@@ -4,11 +4,13 @@ const store = require('../store')
 
 const newTask = function (data) {
   console.log('new task api')
+  console.log(data)
+  const token = store.userData.token
   return $.ajax({
     url: config.apiOrigin + '/tasks',
     method: 'POST',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + token
     },
     data
   })
@@ -20,7 +22,7 @@ const getTasks = function () {
     url: config.apiOrigin + '/tasks',
     method: 'GET',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + store.userData.token
     }
   })
 }
@@ -31,7 +33,7 @@ const deleteTask = function (data, taskId) {
     url: config.apiOrigin + '/tasks/' + taskId,
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + store.userData.token
     }
   })
 }
@@ -42,7 +44,7 @@ const editTask = function (data, taskId) {
     url: config.apiOrigin + '/tasks/' + taskId,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + store.userData.token
     },
     data
   })
