@@ -32,6 +32,7 @@ const signInFailure = () => {
 const signOutSuccess = (data) => {
   console.log('sign out success')
   store.userData = null
+  clearTable()
 }
 
 const changePasswordSuccess = () => {
