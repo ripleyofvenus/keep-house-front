@@ -5,6 +5,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   box-sizing: border-box;
 }
 
+p {
+  color: #000000;
+}
+
+.app-page {
+  display: none;
+}
 /* Remove margins and padding from the list */
 thead {
   margin: 0;

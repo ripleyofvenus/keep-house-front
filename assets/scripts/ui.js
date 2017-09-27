@@ -3,44 +3,87 @@
 const store = require('./store.js')
 const taskApi = require('./tasklist/api')
 const showTasksTemplate = require('./templates/tasks.handlebars')
-const config = require('./config')
 
 // Auth Ui
 
 const signUpSuccess = (data) => {
-  console.log('sign up success')
+  $('#alert-div').html('<p>sign up success<p>')
+  $('#alert-div').show()
+  $('#alert-div').removeClass('hidden')
+  $('#alert-div').addClass('alert-success')
+  $('#alert-div').removeClass('alert-danger')
+  $('#alert-div').delay(2000).fadeOut('2000')
   $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = () => {
-  console.log('sign up failure')
+  $('#alert-div').html('<p>Something went wrong... try again?<p>')
+  $('#alert-div').show()
+  $('#alert-div').removeClass('hidden')
+  $('#alert-div').addClass('alert-danger')
+  $('#alert-div').removeClass('alert-success')
+  $('#alert-div').delay(2000).fadeOut('2000')
+  $('#sign-up').trigger('reset')
 }
 
 const signInSuccess = (data) => {
-  console.log('sign in success')
   store.userData = data.user
+  $('#app-alert-div').html('<p>sign in success<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-success')
+  $('#app-alert-div').removeClass('alert-danger')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
   $('#sign-in').trigger('reset')
+  $('.landing-page').hide()
+  $('.app-page').show()
   taskApi.getTasks()
     .then(getTasksSuccess)
     .catch(getTasksError)
 }
 
 const signInFailure = () => {
-  console.log('sign in failure')
+  $('#alert-div').html('<p>Something went wrong... try again?<p>')
+  $('#alert-div').show()
+  $('#alert-div').removeClass('hidden')
+  $('#alert-div').addClass('alert-danger')
+  $('#alert-div').removeClass('alert-success')
+  $('#alert-div').delay(2000).fadeOut('2000')
+  $('#sign-in').trigger('reset')
 }
 
 const signOutSuccess = (data) => {
-  console.log('sign out success')
   store.userData = null
+  $('#alert-div').html('<p>Signed Out<p>')
+  $('#alert-div').show()
+  $('#alert-div').removeClass('hidden')
+  $('#alert-div').addClass('alert-success')
+  $('#alert-div').removeClass('alert-danger')
+  $('#alert-div').delay(2000).fadeOut('2000')
+  $('#tasklist').trigger('reset')
   clearTable()
+  $('.landing-page').show()
+  $('.app-page').hide()
 }
 
 const changePasswordSuccess = () => {
-  console.log('change password success')
+  $('#app-alert-div').html('<p>Password Updated<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-success')
+  $('#app-alert-div').removeClass('alert-danger')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFail = () => {
-  console.log('change password failure')
+  $('#app-alert-div').html('<p>Something went wrong... try again?<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-danger')
+  $('#app-alert-div').removeClass('alert-success')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
+  $('#change-password').trigger('reset')
 }
 
 // task events
@@ -54,6 +97,12 @@ const clearTable = function () {
 }
 
 const newTaskSuccess = () => {
+  $('#app-alert-div').html('<p>Locked and Loaded<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-success')
+  $('#app-alert-div').removeClass('alert-danger')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
   $('#tasklist').trigger('reset')
   clearTable()
   taskApi.getTasks()
@@ -62,22 +111,30 @@ const newTaskSuccess = () => {
 }
 
 const newTaskError = () => {
-  console.log('new task fail')
+  $('#app-alert-div').html('<p>Did Not Create Task<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-danger')
+  $('#app-alert-div').removeClass('alert-success')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
 }
 
 const getTasksSuccess = (data) => {
-  console.log('get tasks success')
   const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
   $('.table-body').append(showTasksHtml)
   $('.delete-task-btn').on('click', onDeleteTask)
   $('.edit-task-btn').on('click', function (event) {
-    // $('.delete-task-btn').hide()
   })
     .on('click', onEditTask)
 }
 
 const getTasksError = () => {
-  console.log('get tasks error')
+  $('#app-alert-div').html('<p>Something went wrong... did not retrieve tasks<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-danger')
+  $('#app-alert-div').removeClass('alert-success')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
 }
 
 const onDeleteTask = (event) => {
@@ -88,7 +145,12 @@ const onDeleteTask = (event) => {
 }
 
 const deleteTaskSuccess = () => {
-  console.log('task deleted')
+  $('#app-alert-div').html('<p>Task Deleted<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-success')
+  $('#app-alert-div').removeClass('alert-danger')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
   clearTable()
   taskApi.getTasks()
     .then(getTasksSuccess)
@@ -96,12 +158,16 @@ const deleteTaskSuccess = () => {
 }
 
 const deleteTaskError = () => {
-  console.log('task not deleted')
+  $('#app-alert-div').html('<p>Something went wrong... did not delete tasks<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-danger')
+  $('#app-alert-div').removeClass('alert-success')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
 }
 
 const onEditTask = (event) => {
   const selectTaskId = $(event.target).parent().parent().data('id')
-  console.log(selectTaskId)
   const taskField = $(event.target).parent().siblings()[0]
   const notesField = $(event.target).parent().siblings()[1]
   taskField.contentEditable = true
@@ -109,12 +175,8 @@ const onEditTask = (event) => {
   $(taskField).css('background-color', 'rgb(255,255,65)')
   $(notesField).css('background-color', 'rgb(255,255,65)')
   $(event.target).replaceWith('<button class="btn btn-info confirm-task-btn">Confirm</button>')
-  // $('.confirm-task-btn').on('click', onConfirmTask)
-  // console.log(event.target)
-  // console.log('made it to edit task')
   $('.confirm-task-btn').on('click', function () {
     onConfirmTask(selectTaskId, taskField, notesField)
-    console.log('confirm task button')
   })
 }
 
@@ -128,22 +190,31 @@ const onConfirmTask = function (selectTaskId, taskField, notesField) {
       notes: newNote
     }
   }
-  console.log(data)
   taskApi.editTask(selectTaskId, data)
     .then(onEditTaskSuccess)
     .catch(onEditTaskFailure)
 }
 
 const onEditTaskSuccess = function () {
-  console.log('task updated')
   clearTable()
+  $('#app-alert-div').html('<p>Task Updated<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-success')
+  $('#app-alert-div').removeClass('alert-danger')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
   taskApi.getTasks()
     .then(getTasksSuccess)
     .catch(getTasksError)
 }
 
 const onEditTaskFailure = function () {
-  console.log('task not updated')
+  $('#app-alert-div').html('<p>Something went wrong... task not updated<p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-danger')
+  $('#app-alert-div').removeClass('alert-success')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
 }
 
 module.exports = {

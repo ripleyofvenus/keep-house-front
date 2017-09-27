@@ -3,8 +3,6 @@ const config = require('../config')
 const store = require('../store')
 
 const newTask = function (data) {
-  console.log('new task api')
-  console.log(data)
   const token = store.userData.token
   return $.ajax({
     url: config.apiOrigin + '/tasks',
@@ -22,7 +20,6 @@ const getTasks = function () {
   const data = {
     order: order
   }
-  console.log('get tasks api')
   return $.ajax({
     url: config.apiOrigin + '/tasks',
     method: 'GET',
@@ -34,7 +31,6 @@ const getTasks = function () {
 }
 
 const deleteTask = function (id) {
-  console.log('delete task api')
   const token = store.userData.token
   return $.ajax({
     url: config.apiOrigin + '/tasks/' + id,
@@ -46,7 +42,6 @@ const deleteTask = function (id) {
 }
 
 const editTask = function (selectTaskId, data) {
-  console.log('edit task api')
   return $.ajax({
     url: config.apiOrigin + '/tasks/' + selectTaskId,
     method: 'PATCH',
@@ -56,6 +51,7 @@ const editTask = function (selectTaskId, data) {
     data
   })
 }
+
 module.exports = {
   newTask,
   getTasks,
