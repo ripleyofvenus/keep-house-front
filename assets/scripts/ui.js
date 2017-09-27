@@ -46,6 +46,7 @@ const changePasswordFail = () => {
 // task events
 const addHandlers = () => {
   $('.delete-task-btn').on('click', onDeleteTask)
+  $('.edit-task-btn').on('click', onEditTask)
 }
 
 const clearTable = function () {
@@ -53,6 +54,7 @@ const clearTable = function () {
 }
 
 const newTaskSuccess = () => {
+  $('#tasklist').trigger('reset')
   clearTable()
   taskApi.getTasks()
     .then(getTasksSuccess)
@@ -66,9 +68,12 @@ const newTaskError = () => {
 const getTasksSuccess = (data) => {
   console.log('get tasks success')
   const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
-  console.log(showTasksHtml)
   $('.table-body').append(showTasksHtml)
   $('.delete-task-btn').on('click', onDeleteTask)
+  $('.edit-task-btn').on('click', function (event) {
+    // $('.delete-task-btn').hide()
+  })
+    .on('click', onEditTask)
 }
 
 const getTasksError = () => {
@@ -77,7 +82,6 @@ const getTasksError = () => {
 
 const onDeleteTask = (event) => {
   const selectTaskId = $(event.target).parent().parent().data('id')
-  console.log(selectTaskId)
   taskApi.deleteTask(selectTaskId)
     .then(deleteTaskSuccess)
     .catch(deleteTaskError)
@@ -95,6 +99,53 @@ const deleteTaskError = () => {
   console.log('task not deleted')
 }
 
+const onEditTask = (event) => {
+  const selectTaskId = $(event.target).parent().parent().data('id')
+  console.log(selectTaskId)
+  const taskField = $(event.target).parent().siblings()[0]
+  const notesField = $(event.target).parent().siblings()[1]
+  taskField.contentEditable = true
+  notesField.contentEditable = true
+  $(taskField).css('background-color', 'rgb(255,255,65)')
+  $(notesField).css('background-color', 'rgb(255,255,65)')
+  $(event.target).replaceWith('<button class="btn btn-info confirm-task-btn">Confirm</button>')
+  // $('.confirm-task-btn').on('click', onConfirmTask)
+  // console.log(event.target)
+  // console.log('made it to edit task')
+  $('.confirm-task-btn').on('click', function () {
+    onConfirmTask(selectTaskId, taskField, notesField)
+    console.log('confirm task button')
+  })
+}
+
+const onConfirmTask = function (selectTaskId, taskField, notesField) {
+  const newTask = $(taskField).html()
+  const newNote = $(notesField).html()
+  const data =
+  {
+    task: {
+      task: newTask,
+      notes: newNote
+    }
+  }
+  console.log(data)
+  taskApi.editTask(selectTaskId, data)
+    .then(onEditTaskSuccess)
+    .catch(onEditTaskFailure)
+}
+
+const onEditTaskSuccess = function () {
+  console.log('task updated')
+  clearTable()
+  taskApi.getTasks()
+    .then(getTasksSuccess)
+    .catch(getTasksError)
+}
+
+const onEditTaskFailure = function () {
+  console.log('task not updated')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -110,5 +161,7 @@ module.exports = {
   addHandlers,
   onDeleteTask,
   deleteTaskSuccess,
-  deleteTaskError
+  deleteTaskError,
+  onEditTaskSuccess,
+  onEditTaskFailure
 }

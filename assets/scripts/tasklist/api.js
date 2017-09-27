@@ -45,10 +45,10 @@ const deleteTask = function (id) {
   })
 }
 
-const editTask = function (data, taskId) {
+const editTask = function (selectTaskId, data) {
   console.log('edit task api')
   return $.ajax({
-    url: config.apiOrigin + '/tasks/' + taskId,
+    url: config.apiOrigin + '/tasks/' + selectTaskId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.userData.token
