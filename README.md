@@ -1,5 +1,5 @@
 ##Project Concept
-```md
+
 Keep House is an task manager app (similar to Trello) aimed at helping housemates
 (whether communal, family, dorms, etc.) keep track of what tasks need to be done
 around the house.
@@ -11,14 +11,14 @@ around the house. The app will relieve this load through keeping track of tasks
 while aggregating the information to the user account or "House", enabling the
 ability to mark tasks as completed, or in need of attention.
 Heroku webpage can be found ```html <a href=https://keephouse.herokuapp.com/>here
-My initial wire frame, concept sketches, and ERD can be found ```html <a href=https://imgur.com/gallery/dyFTN>here</a>
-```
+My initial wire frame, concept sketches, and ERD can be found ```html <a href=https://imgur.com/a/thHyp>here</a>
+
 ###Technologies Used
-```md
+
 HTML 5, CSS 3, SASS, JavaScript ES6, jQuery, Handlebars, AJAX
-```
+
 ##User Stories
-```md
+
 As a user, I want to...
 -have a profile I can access with my username and password
 -store my tasks to my profile
@@ -27,9 +27,9 @@ As a user, I want to...
 -check off tasks when they are completed
 -uncheck tasks when they need to be done again
 -change my profile password if needed
-```
+
 ##Tables and Columns
-```md
+
 Table: House
 -Username
 -Email Address
@@ -39,9 +39,9 @@ Table: Tasks
 -Example Task 1
 -Example Task 2
 -Example Task 3
-```
+
 ##Timeline
-```md
+
 Day 1 (Friday) - Confirm project concept and outline with consultant team.
 Set up back-end files and deploy to Heroku.
 Start entering pseudo-code comments to outline my steps and actions to follow.
@@ -56,15 +56,15 @@ Day 5 (Tuesday) - Continue work from Monday. If possible complete project
 requirements.
 Day 6 (Wednesday) - Catch-up and Touch up day.
 Project Presentation Day
-```
+
 ##If I had more time
-```md
+
 -Styling and User experience I wanted to spend more time on. Coming down with a
 cold the last two days of the project definitely had different plans, but I'm
 happy I was still able to complete my required objectives despite the plague.
-```
+
 ##Future Additions
-```md
+
 -check or strikethrough to mark a task done
 -the Username feature will be implemented so that multiple email addresses (users)
 can belong to one username (house) and assign each other tasks
@@ -72,4 +72,3 @@ can belong to one username (house) and assign each other tasks
 -ability for a House to have multiple lists
 -ability for User to have private lists
 -due dates for tasks & auto renew of tasks after a specified amount of time
-```
