@@ -10,8 +10,8 @@ through relieving the mental load of keeping track of things which needed doing
 around the house. The app will relieve this load through keeping track of tasks
 while aggregating the information to the user account or "House", enabling the
 ability to mark tasks as completed, or in need of attention.
-Heroku webpage can be found ```html <a href=https://keephouse.herokuapp.com/>here
-My initial wire frame, concept sketches, and ERD can be found ```html <a href=https://imgur.com/a/thHyp>here</a>
+Heroku webpage can be found <a href=https://keephouse.herokuapp.com/>here
+My initial wire frame, concept sketches, and ERD can be found <a href=https://imgur.com/a/thHyp>here.</a>
 
 ###Technologies Used
 
