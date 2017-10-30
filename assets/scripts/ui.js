@@ -44,6 +44,7 @@ const signInSuccess = (data) => {
   $('#sign-in-button').hide()
   $('#change-password-button').show()
   $('.tasklist').show()
+  $('#sign-out').show()
   taskApi.getTasks()
     .then(getTasksSuccess)
     .catch(getTasksError)
@@ -75,6 +76,7 @@ const signOutSuccess = (data) => {
   $('#sign-up-button').show()
   $('#change-password-button').hide()
   $('.tasklist').hide()
+  $('#sign-out').hide()
 }
 
 const changePasswordSuccess = () => {

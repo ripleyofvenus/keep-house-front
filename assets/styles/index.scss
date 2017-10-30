@@ -1,6 +1,19 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 /* Include the padding and border in an element's total width and height */
+
+.container-fluid {
+  background-image: url('https://i.imgur.com/BDA8rLk.jpg');
+  background-size: 100%;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.tasklist, .app-page, .landing-page {
+  background: rgba(255, 255, 255, 0.7)
+}
+
 .tasklist {
   box-sizing: border-box;
 }
@@ -119,6 +132,6 @@ input {
   background-color: #bbb;
 }
 
-#change-password-button {
+#change-password-button, #sign-out, .tasklist {
   display: none;
 }
