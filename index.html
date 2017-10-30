@@ -1,90 +1,152 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Keep House</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <!-- Landing Page -->
-    <div class="container landing-page">
-      <div class="col-xs-6">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body class="container-fluid">
+  <!-- Landing Page -->
+  <div class="container landing-page">
+    <div class="col-xs-6">
       <div id="alert-div" class="alert alert-div hidden" role="alert">
       </div>
-      </div>
-      <!-- sign up form -->
-<form id="sign-up">
-<fieldset>
-<legend>Sign Up</legend>
-<input type="text" name="credentials[email]" value="" placeholder="email">
-<input type="password" name="credentials[password]" value="" placeholder="password">
-<input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
-<input type="text" name="credentials[username]" value="" placeholder="username">
-<input type="submit" name="submit" value="Sign Up">
-</fieldset>
-</form>
-<!-- sign in form -->
-<form id="sign-in">
-<fieldset>
-<legend>Sign In</legend>
-<input type="text" name="credentials[email]" value="" placeholder="email">
-<input type="password" name="credentials[password]" value="" placeholder="password">
-<input type="submit" name="submit" value="Sign In">
-</fieldset>
-</form>
-<h1>Keep House</h1>
-
-<p>Relieve the mental load, keep track of your laundry load, and don't lose your mind... all in one app.</p>
     </div>
-<!-- App Page -->
-<div class="container app-page">
-  <div class="col-xs-6">
-  <div id="app-alert-div" class="alert alert-div hidden" role="alert">
-  </div>
-  </div>
-<!-- sign out form  -->
-<form id="sign-out">
-<fieldset>
-<legend>Sign Out</legend>
-<input type="submit" name="submit" value="Sign Out">
-</fieldset>
-</form>
-<!-- change password form -->
-<form id="change-password">
-<fieldset>
-<legend>Change Password</legend>
-<input type="password" name="passwords[old]" value="" placeholder="Old Password">
-<input type="password" name="passwords[new]" value="" placeholder="New Password">
-<input type="submit" name="submit" value="Change Password">
-</fieldset>
-</form>
-  <h1>Keep House</h1>
+    <br>
+    <!-- Title Div -->
+    <h1><b>Keep House</b></h1>
 
-  <p>Relieve the mental load, keep track of your laundry load, and don't lose your mind... all in one app.</p>
-<!-- Add task form -->
-  <div class="add-task">
-  <form id="tasklist">
-  <fieldset>
-  <legend>USERNAME</legend>
-  <input type="text" name="task[task]" value="" placeholder="Task...">
-  <input type="text" name="task[notes]" value="" placeholder="notes">
-  <button type="submit" class="btn btn-primary">Add</button>
-  </fieldset>
-  </form>
+    <p>Relieve the mental load, keep track of your laundry load, and don't lose your mind... all in one app.</p>
+    <!-- App Page -->
+<div class="container app-page">
+    <!-- sign up form -->
+<button type="button" class="btn btn-primary sign-up" id="sign-up-button" data-toggle="modal" data-target="#signup">
+  Sign Up
+</button>
+<button type="button" class="btn btn-primary sign-in" id="sign-in-button" data-toggle="modal" data-target="#signin">
+  Sign In
+</button>
+<button type="button" class="btn btn-primary change-password" id="change-password-button" data-toggle="modal" data-target="#changepassword">
+  Change Password
+</button>
+    <!-- Modal -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up">
+          <fieldset>
+            <input type="text" name="credentials[email]" value="" placeholder="email">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+            <input type="text" name="credentials[username]" value="" placeholder="username">
+            <input type="submit" name="submit" value="Sign Up">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
+</div>
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-in">
+          <fieldset>
+            <input type="text" name="credentials[email]" value="" placeholder="email">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="submit" name="submit" value="Sign In">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="changepassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="change-password">
+          <fieldset>
+            <!-- <h3>Change Password</h3> -->
+            <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+            <input type="password" name="passwords[new]" value="" placeholder="New Password">
+            <input type="submit" name="submit" value="Change Password">
+          </fieldset>
+        </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- <div class="col-xs-6">
+        <div id="app-alert-div" class="alert alert-div hidden" role="alert">
+        </div>
+      </div> -->
+      <!-- change password form -->
+</div>
+  <!-- sign out form  -->
+  <form id="sign-out">
+    <fieldset>
+      <h3>Sign Out</h3>
+      <input type="submit" name="submit" value="Sign Out">
+    </fieldset>
+  </form>
+</div>
+    <!-- Add task form -->
+  <div class="tasklist">
+    <div class="add-task">
+      <form id="tasklist">
+        <fieldset>
+          <legend>USERNAME</legend>
+          <input type="text" name="task[task]" value="" placeholder="Task...">
+          <input type="text" name="task[notes]" value="" placeholder="notes">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </fieldset>
+      </form>
+    </div>
     <table class="table">
-    <thead>
-      <th>Task</th>
-      <th>Notes</th>
-    <tbody class="table-body">
-    </tbody>
+      <thead>
+        <th>Task</th>
+        <th>Notes</th>
+        <tbody class="table-body">
+        </tbody>
     </table>
   </div>
-    </body>
+</body>
+
 </html>
