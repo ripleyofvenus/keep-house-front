@@ -14,6 +14,8 @@ const signUpSuccess = (data) => {
   $('#alert-div').removeClass('alert-danger')
   $('#alert-div').delay(2000).fadeOut('2000')
   $('#sign-up').trigger('reset')
+  $('#signup').modal('hide')
+  $('#sign-up-button').hide()
 }
 
 const signUpFailure = () => {
@@ -35,8 +37,14 @@ const signInSuccess = (data) => {
   $('#app-alert-div').removeClass('alert-danger')
   $('#app-alert-div').delay(2000).fadeOut('2000')
   $('#sign-in').trigger('reset')
-  $('.landing-page').hide()
+  // $('.landing-page').hide()
+  $('#signin').modal('hide')
   $('.app-page').show()
+  $('#sign-up-button').hide()
+  $('#sign-in-button').hide()
+  $('#change-password-button').show()
+  $('.tasklist').show()
+  $('#sign-out').show()
   taskApi.getTasks()
     .then(getTasksSuccess)
     .catch(getTasksError)
@@ -63,7 +71,12 @@ const signOutSuccess = (data) => {
   $('#tasklist').trigger('reset')
   clearTable()
   $('.landing-page').show()
-  $('.app-page').hide()
+  // $('.app-page').hide()
+  $('#sign-in-button').show()
+  $('#sign-up-button').show()
+  $('#change-password-button').hide()
+  $('.tasklist').hide()
+  $('#sign-out').hide()
 }
 
 const changePasswordSuccess = () => {
@@ -74,6 +87,7 @@ const changePasswordSuccess = () => {
   $('#app-alert-div').removeClass('alert-danger')
   $('#app-alert-div').delay(2000).fadeOut('2000')
   $('#change-password').trigger('reset')
+  $('#changepassword').modal('hide')
 }
 
 const changePasswordFail = () => {
